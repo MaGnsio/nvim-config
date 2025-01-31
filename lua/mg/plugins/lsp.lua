@@ -22,5 +22,6 @@ return {
             },
             capabilities = capabilities,
         })
+        require("lspconfig").pyright.setup{ capabilities = capabilities }
     end,
 }
