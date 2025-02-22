@@ -11,7 +11,8 @@ return {
         priority = 1000,
         opts = {},
         config = function()
-            ColorMyPencils("tokyonight-moon")
+            -- ColorMyPencils("tokyonight-moon")
+            ColorMyPencils("moonfly")
         end
     },
     {
@@ -23,5 +24,9 @@ return {
         "bluz71/vim-nightfly-colors",
         name = "nightfly",
         lazy = false
-    }
+    },
+    {
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly", lazy = false
+    },
 }
