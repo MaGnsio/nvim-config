@@ -32,3 +32,11 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
 vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
 vim.keymap.set('n', 'grr', vim.lsp.buf.references)
+
+-- disable automatic clipboard copying when deleting or changing
+vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
+vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
+vim.keymap.set("n", "c", '"_c', { noremap = true, silent = true })
+vim.keymap.set("v", "d", '"_d', { noremap = true, silent = true })
+vim.keymap.set("v", "x", '"_x', { noremap = true, silent = true })
+vim.keymap.set("v", "c", '"_c', { noremap = true, silent = true })
