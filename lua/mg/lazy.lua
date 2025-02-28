@@ -13,9 +13,11 @@ end
 -- put lazy into the run time path for nvim
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("mg.plugins", {
-        change_detection = {
-            notify = false
-        },
-    }
-)
+require("lazy").setup({
+    spec = {
+        { import = "mg.plugins" },
+    },
+    change_detection = {
+        notify = false
+    },
+})
