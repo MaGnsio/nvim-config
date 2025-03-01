@@ -1,10 +1,6 @@
--- set leader key to space
-vim.g.mapleader = " "
+vim.g.mapleader = " " -- set leader key to space
 
-local keymap = vim.keymap -- for conciseness
-
----------------------
--- General Keymaps -------------------
+local keymap = vim.keymap
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
