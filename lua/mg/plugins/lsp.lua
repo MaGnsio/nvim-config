@@ -1,7 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    -- consider using conform and mason
     "saghen/blink.cmp",
     {
       "folke/lazydev.nvim",
@@ -12,11 +11,37 @@ return {
         },
       },
     },
+    { 'stevearc/conform.nvim' },
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
   },
   config = function()
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
-    require("lspconfig").ruff.setup {}
+    require("conform").setup({
+      formatters_by_ft = {
+        lua = { "lua_ls" },
+        python = { "ruff" },
+        cpp = { "clangd" }
+      },
+    })
 
+    require("mason").setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗"
+        }
+      }
+    })
+
+    ---@diagnostic disable-next-line: missing-fields
+    require("mason-lspconfig").setup({
+      ensure_installed = { "lua_ls", "clangd", "pyright", "ruff" },
+    })
+
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+    require("lspconfig").ruff.setup {}
     require("lspconfig").pyright.setup({
       capabilities = capabilities,
       settings = {
@@ -32,9 +57,7 @@ return {
         },
       },
     })
-
     require("lspconfig").lua_ls.setup { capabilities = capabilities }
-
     require("lspconfig").clangd.setup({
       cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--header-insertion=never' },
       init_options = {
