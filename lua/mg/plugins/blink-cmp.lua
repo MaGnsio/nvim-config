@@ -9,5 +9,7 @@ return {
       nerd_font_variant = "mono"
     },
     signature = { enabled = true },
+    -- Disable cmdline
+    cmdline = { enabled = false },
   },
- }
+}
