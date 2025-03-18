@@ -25,15 +25,15 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) 
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- lsp helpful keymaps
-vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
-vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
-vim.keymap.set('n', 'grr', vim.lsp.buf.references)
+vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { desc = "Rename sympol" })
+vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, { desc = "Code actions" })
+vim.keymap.set('n', 'grr', vim.lsp.buf.references, { desc = "View references" })
 vim.keymap.set('n', "grf", function() vim.lsp.buf.format({
     filter = function(client)
         print("Formatting with: " .. client.name)
         return true  -- This ensures all formatters are listed
     end,
-}) end)
+}) end, { desc = "Format file" })
 
 -- disable automatic clipboard copying when deleting or changing
 vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
