@@ -18,9 +18,9 @@ return {
   config = function()
     require("conform").setup({
       formatters_by_ft = {
-        lua = { "lua_ls" },
+        lua = { "lua-format" },
         python = { "ruff" },
-        cpp = { "clangd" }
+        cpp = { "clang-format" }
       },
     })
 
