@@ -11,8 +11,8 @@ return {
     priority = 1000,
     opts = {},
     config = function()
-      -- ColorMyPencils("tokyonight-moon")
-      ColorMyPencils("moonfly")
+      ColorMyPencils("tokyonight-moon")
+      -- ColorMyPencils("moonfly")
     end
   },
   {
