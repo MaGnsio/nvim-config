@@ -36,7 +36,7 @@ return {
 
     ---@diagnostic disable-next-line: missing-fields
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "clangd", "pyright", "ruff" },
+      ensure_installed = { "lua_ls", "clangd", "pyright", "ruff", "marksman" },
     })
 
     local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -65,6 +65,7 @@ return {
       },
       capabilities = capabilities,
     })
+    require("lspconfig").marksman.setup { capabilities = capabilities }
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
