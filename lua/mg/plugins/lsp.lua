@@ -36,7 +36,7 @@ return {
 
     ---@diagnostic disable-next-line: missing-fields
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "clangd", "pyright", "ruff", "marksman" "gopls" },
+      ensure_installed = { "lua_ls", "clangd", "pyright", "ruff", "marksman", "gopls" },
     })
 
     local capabilities = require("blink.cmp").get_lsp_capabilities()
