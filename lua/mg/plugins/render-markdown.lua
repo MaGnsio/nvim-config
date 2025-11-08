@@ -6,7 +6,11 @@ return {
   opts = {},
   config = function()
     local render_markdown = require("render-markdown")
-    render_markdown.setup()
+    render_markdown.setup({
+      html = { enabled = false },
+      latex = { enabled = false },
+      yaml = { enabled = false }
+    })
     local keymap = vim.keymap
     keymap.set("n", "<leader>mt", "<cmd>RenderMarkdown toggle<cr>", { desc = "Toggle render markdown" })
   end

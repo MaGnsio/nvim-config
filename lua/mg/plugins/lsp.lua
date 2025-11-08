@@ -12,8 +12,8 @@ return {
       },
     },
     { 'stevearc/conform.nvim' },
-    { "williamboman/mason.nvim", version = "^1.0.0" },
-    { "williamboman/mason-lspconfig.nvim", version = "^1.0.0" },
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
   },
   config = function()
     require("conform").setup({
@@ -41,8 +41,8 @@ return {
 
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-    require("lspconfig").ruff.setup {}
-    require("lspconfig").pyright.setup({
+    vim.lsp.enable("ruff")
+    vim.lsp.config("pyright", {
       capabilities = capabilities,
       settings = {
         pyright = {
@@ -57,16 +57,16 @@ return {
         },
       },
     })
-    require("lspconfig").lua_ls.setup { capabilities = capabilities }
-    require("lspconfig").clangd.setup({
+    vim.lsp.config("lua_ls", { capabilities = capabilities })
+    vim.lsp.config("clangd", {
       cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose', '--header-insertion=never' },
       init_options = {
         fallbackFlags = { '-std=c++20' },
       },
       capabilities = capabilities,
     })
-    require("lspconfig").marksman.setup { capabilities = capabilities }
-    require("lspconfig").gopls.setup { capabilities = capabilities }
+    vim.lsp.config("marksman", { capabilities = capabilities })
+    vim.lsp.config("gopls", { capabilities = capabilities })
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
