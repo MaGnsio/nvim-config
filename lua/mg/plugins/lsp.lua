@@ -67,6 +67,8 @@ return {
     })
     vim.lsp.config("marksman", { capabilities = capabilities })
     vim.lsp.config("gopls", { capabilities = capabilities })
+    vim.lsp.config("buf_ls", { capabilities = capabilities })
+    vim.lsp.config("kotlin_lsp", { capabilities = capabilities })
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
