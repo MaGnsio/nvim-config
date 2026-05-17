@@ -1,4 +1,4 @@
-local start_time = vim.uv.hrtime()  -- Get the start time (in nanoseconds)
+local start_time = vim.uv.hrtime() -- Get the start time (in nanoseconds)
 
 require("mg.core")
 require("mg.lazy")

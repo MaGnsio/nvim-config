@@ -22,12 +22,14 @@ vim.keymap.set('n', 'grn', vim.lsp.buf.rename, { desc = "Rename sympol" })
 vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, { desc = "Code actions" })
 vim.keymap.set('n', 'grr', vim.lsp.buf.references, { desc = "View references" })
 vim.keymap.set('n', 'grd', vim.diagnostic.open_float, { desc = "Show diagnostic in a floating window" })
-vim.keymap.set('n', "grf", function() vim.lsp.buf.format({
+vim.keymap.set('n', "grf", function()
+  vim.lsp.buf.format({
     filter = function(client)
-        print("Formatting with: " .. client.name)
-        return true  -- This ensures all formatters are listed
+      print("Formatting with: " .. client.name)
+      return true -- This ensures all formatters are listed
     end,
-}) end, { desc = "Format file" })
+  })
+end, { desc = "Format file" })
 
 -- disable automatic clipboard copying when deleting or changing
 vim.keymap.set("n", "d", '"_d', { noremap = true, silent = true })
