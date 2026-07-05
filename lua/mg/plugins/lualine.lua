@@ -7,7 +7,7 @@ return {
     -- configure lualine with modified theme
     lualine.setup({
       options = {
-        theme = "tokyonight-moon",
+        theme = "rose-pine",
       },
       sections = {
         lualine_x = {
